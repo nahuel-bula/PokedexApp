@@ -10,7 +10,6 @@ import SwiftUI
 
 struct SearchPokemonScreen: View {
     @ObservedObject var viewModel = SearchPokemonViewModel()
-    
     var body: some View {
             List {
                 ForEach(viewModel.pokemons) { pokemon in

@@ -10,12 +10,28 @@ import SwiftUI
 
 struct PokemonDetailScreen: View {
     @ObservedObject var viewModel = PokemonDetailViewModel()
+    @State private var isFavorite: Bool = false
     var pokemonName: String
     
     var body: some View {
         if let pokemonDetail = viewModel.pokemonDetail {
+            
             VStack {
-                Text("Name: \(pokemonDetail.name)")
+                Button(action: {
+                    viewModel.updateFavorite()
+                    isFavorite.toggle()
+                }) {
+                    Text(isFavorite ? "Remove from Favorites" : "Add to Favorites")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(viewModel.isFavorite() ? Color.red : Color.blue)
+                        .cornerRadius(8)
+                }
+                .onAppear {
+                    isFavorite = viewModel.isFavorite()
+                }
+                
+                //Text("Name: \(pokemonDetail.name)")
                 Text("Height: \(pokemonDetail.getHeightInCentimeters()) cm")
                 Text("Weight: \(pokemonDetail.getWeightInKilograms()) kg")
                 Text("Species: \(pokemonDetail.species.name)")

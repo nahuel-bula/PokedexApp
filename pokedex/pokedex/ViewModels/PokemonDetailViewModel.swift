@@ -32,8 +32,24 @@ class PokemonDetailViewModel: ObservableObject {
             .store(in: &cancellables)
     }
     
+    func updateFavorite() {
+        guard let pokemonDetail = pokemonDetail else { return }
+        
+        if isFavorite() {
+            AppManager.shared.savedPokemons.removeAll(where: { $0.name == pokemonDetail.name })
+        } else {
+            AppManager.shared.savedPokemons.append(SavedPokemon(name: pokemonDetail.name, imageUrl: pokemonDetail.sprites.other.officialArtwork.frontDefault))
+        }
+    }
+    
+    func isFavorite() -> Bool {
+        guard let pokemonDetail = pokemonDetail else { return false }
+        
+        return AppManager.shared.savedPokemons.contains(where: { $0.name == pokemonDetail.name })
+    }
+    
     private func loadFromCache(name: String) -> PokemonDetail? {
-        if let cachedData = UserDefaults.standard.data(forKey: "\(Constants.Cache.pokemonDetailPrefix)_\(name)"),
+        if let cachedData = UserDefaults.standard.data(forKey: "\(cacheKey(for: name))"),
            let cachedDetail = try? JSONDecoder().decode(PokemonDetail.self, from: cachedData) {
             return cachedDetail
         }
@@ -47,6 +63,6 @@ class PokemonDetailViewModel: ObservableObject {
     }
     
     private func cacheKey(for name: String) -> String {
-        return "\(Constants.Cache.pokemonDetailPrefix)_\(name)"
+        return "\(Constants.UserDefaults.pokemonDetailPrefix)_\(name)"
     }
 }

@@ -36,6 +36,8 @@ struct HomeScreen: View {
                 }
                 Spacer().frame(height: 48)
             }
+            
+            .padding(.horizontal, 24)
             .navigationTitle("Pokedex")
             .navigationDestination(for: ScreenRouter.self) { route in
                 switch route {
@@ -47,7 +49,7 @@ struct HomeScreen: View {
                     PokemonDetailScreen(pokemonName: pokemonName)
                 }
             }
-        }.padding(.horizontal, 24)
+        }
     }
 }
 
