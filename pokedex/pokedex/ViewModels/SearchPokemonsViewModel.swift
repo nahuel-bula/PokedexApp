@@ -18,13 +18,14 @@ class SearchPokemonViewModel: ObservableObject {
     }
     
     func fetchPokemons() {
-        guard let url = URL(string: "\(Constants.host)/pokemon?limit=\(Constants.pageSize)&offset=\(currentPage*Constants.pageSize)") else {
+        guard let url = URL(string: "\(Constants.API.host)/\(Constants.API.Keys.pokemon)?\(Constants.API.Queries.limit)=\(Constants.pageSize)&\(Constants.API.Queries.offset)=\(currentPage*Constants.pageSize)") else {
             return
         }
         
         URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
             .decode(type: PokemonListResponse.self, decoder: ApiDecoder())
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 if case .failure(let error) = completion {
                     print("Error: \(error)")
