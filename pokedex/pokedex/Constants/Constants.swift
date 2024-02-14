@@ -19,7 +19,8 @@ struct Constants {
             static let offset = "offset"
         }
     }
-    struct Cache {
+    struct UserDefaults {
         static let pokemonDetailPrefix = "PokemonDetailCache"
+        static let savedPokemons = "savedPokemons"
     }
 }

@@ -10,9 +10,14 @@ import SwiftUI
 
 struct SavedPokemonScreen: View {
     var body: some View {
-        Text("Saved Pokémon Screen")
-            .font(.title)
-            .padding()
+        List(AppManager.shared.savedPokemons, id: \.name) { pokemon in
+            VStack {
+                AsyncImageView(url: pokemon.imageUrl ?? "").frame(width: 50, height: 50)
+                Spacer(minLength: 20)
+                Text(pokemon.name)
+            }
+        }
+        .navigationTitle("Saved Pokemons")
     }
 }
 
