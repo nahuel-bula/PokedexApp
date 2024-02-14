@@ -8,6 +8,15 @@
 import Foundation
 
 struct Constants {
-    static let host: String = "https://pokeapi.co/api/v2"
     static let pageSize: Int = 20
+    struct API {
+        static let host: String = "https://pokeapi.co/api/v2"
+        struct Keys {
+            static let pokemon = "pokemon"
+        }
+        struct Queries {
+            static let limit = "limit"
+            static let offset = "offset"
+        }
+    }
 }
