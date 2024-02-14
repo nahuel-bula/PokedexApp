@@ -9,11 +9,25 @@ import Foundation
 import SwiftUI
 
 struct SearchPokemonScreen: View {
+    @ObservedObject var viewModel = SearchPokemonViewModel()
     
     var body: some View {
-        Text("Search Pokémon Screen")
-            .font(.title)
-            .padding()
+            List {
+                ForEach(viewModel.pokemons) { pokemon in
+                    VStack {
+                        NavigationLink(value: ScreenRouter.pokemonDetailScreen(pokemon.name)) {
+                            Text(pokemon.name)
+                            .padding()
+                            .onAppear {
+                                if self.viewModel.pokemons.last == pokemon {
+                                    self.viewModel.fetchPokemons()
+                                }
+                            }
+                        }
+                    }
+                }
+        }
+        .navigationTitle("Search Pokémon")
     }
 }
 
