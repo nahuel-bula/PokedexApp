@@ -27,7 +27,26 @@ class PokemonDetailViewModel: ObservableObject {
                 }
             }, receiveValue: { [weak self] response in
                 self?.pokemonDetail = response
+                self?.saveToCache(response, name: name)
             })
             .store(in: &cancellables)
+    }
+    
+    private func loadFromCache(name: String) -> PokemonDetail? {
+        if let cachedData = UserDefaults.standard.data(forKey: "\(Constants.Cache.pokemonDetailPrefix)_\(name)"),
+           let cachedDetail = try? JSONDecoder().decode(PokemonDetail.self, from: cachedData) {
+            return cachedDetail
+        }
+        return nil
+    }
+    
+    private func saveToCache(_ detail: PokemonDetail, name: String) {
+        if let encoded = try? JSONEncoder().encode(detail) {
+            UserDefaults.standard.set(encoded, forKey: cacheKey(for: name))
+        }
+    }
+    
+    private func cacheKey(for name: String) -> String {
+        return "\(Constants.Cache.pokemonDetailPrefix)_\(name)"
     }
 }
