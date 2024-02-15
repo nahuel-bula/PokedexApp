@@ -20,11 +20,11 @@ struct HomeScreen: View {
                     .edgesIgnoringSafeArea(.all)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .offset(x: offsetX)
-                            .onAppear {
-                                withAnimation(Animation.linear(duration: 20).repeatForever(autoreverses: true)) {
-                                    offsetX = UIScreen.main.bounds.width / 2
-                                }
-                            }
+                    .onAppear {
+                        withAnimation(Animation.linear(duration: 20).repeatForever(autoreverses: true)) {
+                            offsetX = UIScreen.main.bounds.width / 2
+                        }
+                    }
                 VStack {
                     Spacer().frame(height: UIScreen.main.bounds.height / 6)
                     Image(uiImage: UIImage(named: "pokemonLogo") ?? UIImage()).resizable()
@@ -33,9 +33,9 @@ struct HomeScreen: View {
                         .frame(maxWidth: UIScreen.main.bounds.width)
                         .scaleEffect(isAnimating ? 1.1 : 1)
                         .onAppear {                            withAnimation(Animation.interpolatingSpring(stiffness: 90, damping: 3).repeatForever(autoreverses: true)
-                                .speed(1), {
-                                    isAnimating = true
-                                })
+                            .speed(1), {
+                                isAnimating = true
+                            })
                         }
                         .onDisappear {
                             withAnimation {
@@ -47,7 +47,7 @@ struct HomeScreen: View {
                     NavigationLink(value: ScreenRouter.searchPokemonsScreen) {
                         Text(localized("search_pokemons"))
                             .frame(maxWidth: .infinity)
-                            .font(.custom("SwaggerBold", size: 35, relativeTo: .body))
+                            .font(.custom("SwaggerBold", size: 40, relativeTo: .body))
                             .shadow(color: .black,radius: 1)
                             .foregroundColor(Color.white)
                             .padding()
@@ -57,12 +57,12 @@ struct HomeScreen: View {
                     NavigationLink(value: ScreenRouter.savedPokemonsScreen) {
                         Text(localized("saved_pokemons"))
                             .frame(maxWidth: .infinity)
-                            .font(.custom("SwaggerBold", size: 35, relativeTo: .body))
+                            .font(.custom("SwaggerBold", size: 40, relativeTo: .body))
                             .shadow(color: .black,radius: 1)
                             .foregroundColor(.white)
                             .padding()
                             .cornerRadius(10)
-
+                        
                     }
                     Spacer().frame(height: 48)
                 }
@@ -79,7 +79,6 @@ struct HomeScreen: View {
                     }
                 }
             }
-            
         }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A62475B12B7EBBD1002731F4 /* PokemonRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62475B02B7EBBD1002731F4 /* PokemonRowView.swift */; };
 		A65F19B22B7D4AC0007BBE8B /* UserDefaults+Pokedex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65F19B12B7D4AC0007BBE8B /* UserDefaults+Pokedex.swift */; };
 		A65F19B42B7D4B1C007BBE8B /* ApiEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65F19B32B7D4B1C007BBE8B /* ApiEncoder.swift */; };
 		A65F19B62B7D4B75007BBE8B /* CustomCodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65F19B52B7D4B75007BBE8B /* CustomCodingKeys.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A62475B02B7EBBD1002731F4 /* PokemonRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PokemonRowView.swift; path = pokedex/Components/PokemonRowView.swift; sourceTree = SOURCE_ROOT; };
 		A65F19B12B7D4AC0007BBE8B /* UserDefaults+Pokedex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserDefaults+Pokedex.swift"; path = "pokedex/Extensions/UserDefaults+Pokedex.swift"; sourceTree = SOURCE_ROOT; };
 		A65F19B32B7D4B1C007BBE8B /* ApiEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiEncoder.swift; path = pokedex/Coding/ApiEncoder.swift; sourceTree = SOURCE_ROOT; };
 		A65F19B52B7D4B75007BBE8B /* CustomCodingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCodingKeys.swift; path = pokedex/Coding/CustomCodingKeys.swift; sourceTree = SOURCE_ROOT; };
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				A6B966802B7D0D66005E30FB /* AsyncImageView.swift */,
+				A62475B02B7EBBD1002731F4 /* PokemonRowView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				A6B966662B7D03B9005E30FB /* Stat.swift in Sources */,
 				A6B966672B7D03B9005E30FB /* PokemonListResponse.swift in Sources */,
 				A6B9665E2B7D03B9005E30FB /* Ability.swift in Sources */,
+				A62475B12B7EBBD1002731F4 /* PokemonRowView.swift in Sources */,
 				A65F19B62B7D4B75007BBE8B /* CustomCodingKeys.swift in Sources */,
 				A6B9665C2B7D03B9005E30FB /* PokemonType.swift in Sources */,
 				A6B9666D2B7D0515005E30FB /* ScreenRouter.swift in Sources */,

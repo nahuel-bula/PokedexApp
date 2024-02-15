@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct PokemonListItem: Codable, Identifiable, Equatable {
+struct PokemonListItem: Codable, Identifiable, Equatable, Hashable {
     var id: Int {
-            guard let urlComponents = URLComponents(string: url),
-                  let idString = urlComponents.path.split(separator: "/").last,
-                  let id = Int(idString) else {
-                return 0
-            }
-            return id
+        guard let urlComponents = URLComponents(string: url),
+              let idString = urlComponents.path.split(separator: "/").last,
+              let id = Int(idString) else {
+            return 0
         }
+        return id
+    }
     var name: String
     var url: String
 }

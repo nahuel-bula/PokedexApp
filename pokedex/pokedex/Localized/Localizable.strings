@@ -7,5 +7,8 @@
 */
 
 // MARK: - Home screen
-"search_pokemons" = "Search Pokemons";
-"saved_pokemons" = "Saved Pokémons";
+"search_pokemons" = "Search pokemons";
+"saved_pokemons" = "Saved pokémons";
+
+// Mark: - Search pokemon screen
+"search_pokemons_title" = "Select a pokémon";
