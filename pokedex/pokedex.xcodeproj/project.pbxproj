@@ -10,6 +10,11 @@
 		A65F19B22B7D4AC0007BBE8B /* UserDefaults+Pokedex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65F19B12B7D4AC0007BBE8B /* UserDefaults+Pokedex.swift */; };
 		A65F19B42B7D4B1C007BBE8B /* ApiEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65F19B32B7D4B1C007BBE8B /* ApiEncoder.swift */; };
 		A65F19B62B7D4B75007BBE8B /* CustomCodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65F19B52B7D4B75007BBE8B /* CustomCodingKeys.swift */; };
+		A6B768842B7E916200DA03C6 /* Swagger.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6B768832B7E910200DA03C6 /* Swagger.ttf */; };
+		A6B768852B7E916900DA03C6 /* SwaggerBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6B768822B7E910100DA03C6 /* SwaggerBold.ttf */; };
+		A6B768862B7E916B00DA03C6 /* SwaggerLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6B768812B7E90FF00DA03C6 /* SwaggerLight.ttf */; };
+		A6B768882B7E9CB800DA03C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6B768872B7E9CB800DA03C6 /* Localizable.strings */; };
+		A6B7688B2B7E9D4500DA03C6 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B7688A2B7E9D4500DA03C6 /* Localized.swift */; };
 		A6B966232B7CFDE1005E30FB /* PokedexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B966222B7CFDE1005E30FB /* PokedexApp.swift */; };
 		A6B966272B7CFDE1005E30FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6B966262B7CFDE1005E30FB /* Assets.xcassets */; };
 		A6B9662A2B7CFDE1005E30FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6B966292B7CFDE1005E30FB /* Preview Assets.xcassets */; };
@@ -45,6 +50,11 @@
 		A65F19B12B7D4AC0007BBE8B /* UserDefaults+Pokedex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserDefaults+Pokedex.swift"; path = "pokedex/Extensions/UserDefaults+Pokedex.swift"; sourceTree = SOURCE_ROOT; };
 		A65F19B32B7D4B1C007BBE8B /* ApiEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiEncoder.swift; path = pokedex/Coding/ApiEncoder.swift; sourceTree = SOURCE_ROOT; };
 		A65F19B52B7D4B75007BBE8B /* CustomCodingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCodingKeys.swift; path = pokedex/Coding/CustomCodingKeys.swift; sourceTree = SOURCE_ROOT; };
+		A6B768812B7E90FF00DA03C6 /* SwaggerLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SwaggerLight.ttf; sourceTree = "<group>"; };
+		A6B768822B7E910100DA03C6 /* SwaggerBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SwaggerBold.ttf; sourceTree = "<group>"; };
+		A6B768832B7E910200DA03C6 /* Swagger.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Swagger.ttf; sourceTree = "<group>"; };
+		A6B768872B7E9CB800DA03C6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Pokedex/Localized/Localizable.strings; sourceTree = SOURCE_ROOT; };
+		A6B7688A2B7E9D4500DA03C6 /* Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Localized.swift; path = pokedex/Localized/Localized.swift; sourceTree = SOURCE_ROOT; };
 		A6B9661F2B7CFDE1005E30FB /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B966222B7CFDE1005E30FB /* PokedexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexApp.swift; sourceTree = "<group>"; };
 		A6B966262B7CFDE1005E30FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,6 +85,7 @@
 		A6B966832B7D0D76005E30FB /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		A6B966932B7D3AA9005E30FB /* SavedPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SavedPokemon.swift; path = "pokedex/Data models/SavedPokemon.swift"; sourceTree = SOURCE_ROOT; };
 		A6B966962B7D3C57005E30FB /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = App.swift; path = pokedex/Managers/App.swift; sourceTree = SOURCE_ROOT; };
+		A6DE48B12B7E858E00F26670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +107,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A6B768892B7E9D1600DA03C6 /* Localized */ = {
+			isa = PBXGroup;
+			children = (
+				A6B768872B7E9CB800DA03C6 /* Localizable.strings */,
+				A6B7688A2B7E9D4500DA03C6 /* Localized.swift */,
+			);
+			path = Localized;
+			sourceTree = "<group>";
+		};
 		A6B966162B7CFDE1005E30FB = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +135,9 @@
 		A6B966212B7CFDE1005E30FB /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				A6B768892B7E9D1600DA03C6 /* Localized */,
+				A6DE48B12B7E858E00F26670 /* Info.plist */,
+				A6DE48AD2B7E850700F26670 /* Resources */,
 				A65F19B02B7D4AA4007BBE8B /* Extensions */,
 				A6B966952B7D3C2C005E30FB /* Managers */,
 				A6B966922B7D3A83005E30FB /* Data models */,
@@ -127,7 +150,6 @@
 				A6B966682B7D04C2005E30FB /* Screens */,
 				A6B9664D2B7D03B9005E30FB /* Models */,
 				A6B966222B7CFDE1005E30FB /* PokedexApp.swift */,
-				A6B966262B7CFDE1005E30FB /* Assets.xcassets */,
 				A6B966282B7CFDE1005E30FB /* Preview Content */,
 			);
 			path = Pokedex;
@@ -239,6 +261,25 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		A6DE48AD2B7E850700F26670 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A6DE48AE2B7E851C00F26670 /* Fonts */,
+				A6B966262B7CFDE1005E30FB /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A6DE48AE2B7E851C00F26670 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A6B768832B7E910200DA03C6 /* Swagger.ttf */,
+				A6B768822B7E910100DA03C6 /* SwaggerBold.ttf */,
+				A6B768812B7E90FF00DA03C6 /* SwaggerLight.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -297,8 +338,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6B768852B7E916900DA03C6 /* SwaggerBold.ttf in Resources */,
+				A6B768882B7E9CB800DA03C6 /* Localizable.strings in Resources */,
 				A6B9662A2B7CFDE1005E30FB /* Preview Assets.xcassets in Resources */,
+				A6B768862B7E916B00DA03C6 /* SwaggerLight.ttf in Resources */,
 				A6B966272B7CFDE1005E30FB /* Assets.xcassets in Resources */,
+				A6B768842B7E916200DA03C6 /* Swagger.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +358,7 @@
 				A6B966942B7D3AA9005E30FB /* SavedPokemon.swift in Sources */,
 				A6B9667C2B7D099C005E30FB /* ApiDecoder.swift in Sources */,
 				A6B966632B7D03B9005E30FB /* PokemonDetail.swift in Sources */,
+				A6B7688B2B7E9D4500DA03C6 /* Localized.swift in Sources */,
 				A6B9665B2B7D03B9005E30FB /* Sprites.swift in Sources */,
 				A6B966712B7D059A005E30FB /* SearchPokemonScreen.swift in Sources */,
 				A6B966642B7D03B9005E30FB /* SpritGroup.swift in Sources */,
@@ -469,6 +515,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Pokedex/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pokedex/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -497,6 +544,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Pokedex/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pokedex/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

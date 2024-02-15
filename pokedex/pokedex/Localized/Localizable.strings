@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Pokedex
+
+  Created by Nahuel Bula on 15/2/24.
+  
+*/
+
+// MARK: - Home screen
+"search_pokemons" = "Search Pokemons";
+"saved_pokemons" = "Saved Pokémons";
