@@ -51,7 +51,6 @@ struct HomeScreen: View {
                             .shadow(color: .black,radius: 1)
                             .foregroundColor(Color.white)
                             .padding()
-                            .cornerRadius(10)
                     }
                     
                     NavigationLink(value: ScreenRouter.savedPokemonsScreen) {
@@ -61,9 +60,8 @@ struct HomeScreen: View {
                             .shadow(color: .black,radius: 1)
                             .foregroundColor(.white)
                             .padding()
-                            .cornerRadius(10)
-                        
                     }
+                    
                     Spacer().frame(height: 48)
                 }
                 

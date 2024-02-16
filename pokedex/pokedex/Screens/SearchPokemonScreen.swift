@@ -15,7 +15,7 @@ struct SearchPokemonScreen: View {
             ForEach(viewModel.pokemons) { pokemon in
                 VStack {
                     NavigationLink(value: ScreenRouter.pokemonDetailScreen(pokemon.name)) {
-                        PokemonRowView(pokemonName: pokemon.name)
+                        PokemonRowView(pokemonName: pokemon.name.capitalized)
                             .onAppear {
                                 if self.viewModel.pokemons.last == pokemon {
                                     self.viewModel.fetchPokemons()

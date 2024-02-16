@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Stat: Codable {
+struct Stat: Codable{
     var baseStat: Int
     var effort: Int
     var stat: StatDetail

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AsyncImageView: View {
     @StateObject private var imageLoader: ImageLoader
-    private let placeholderImage = UIImage(systemName: "photo")
+    @State private var isLoading = true
     
     init(url: String) {
         print(url)
@@ -22,8 +22,14 @@ struct AsyncImageView: View {
             Image(uiImage: uiImage)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .opacity(isLoading ? 0 : 1)
+                .onAppear {
+                    withAnimation(.easeInOut(duration: 0.5)) {
+                        isLoading = false
+                    }
+                }
         } else {
-            Image(uiImage: placeholderImage!)
+            Image(uiImage: UIImage())
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .onAppear {
