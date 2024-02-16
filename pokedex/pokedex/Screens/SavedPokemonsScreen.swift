@@ -9,15 +9,26 @@ import Foundation
 import SwiftUI
 
 struct SavedPokemonScreen: View {
+    @ObservedObject var viewModel = SearchPokemonViewModel()
     var body: some View {
-        List(AppManager.shared.savedPokemons, id: \.name) { pokemon in
+        let savedPokemons = AppManager.shared.savedPokemons
+        
+        ScrollView(showsIndicators: false) {
             VStack {
-                AsyncImageView(url: pokemon.imageUrl ?? "").frame(width: 50, height: 50)
-                Spacer(minLength: 20)
-                Text(pokemon.name)
+                ForEach(0...AppManager.shared.savedPokemons.count/2, id: \.self) { index in
+                    HStack {
+                        ForEach(savedPokemons[index*2..<min(index*2 + 2, savedPokemons.count)], id: \.name) { pokemon in
+                            SavedPokemonRow(pokemon: pokemon)
+                        }
+                    }
+                }
             }
+            .listRowSeparator(.hidden)
+            .listRowInsets(EdgeInsets())
+            
+            Spacer().frame(height: 48)
         }
-        .navigationTitle("Saved Pokemons")
+        .navigationTitle(localized("saved_pokemons_title"))
     }
 }
 

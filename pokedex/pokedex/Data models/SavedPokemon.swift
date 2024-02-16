@@ -9,5 +9,6 @@ import Foundation
 
 struct SavedPokemon: Codable {
     var name: String
+    var types: [PokemonTypeListItem]
     var imageUrl: String?
 }
