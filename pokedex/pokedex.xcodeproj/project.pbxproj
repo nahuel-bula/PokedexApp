@@ -56,6 +56,7 @@
 		A6B966972B7D3C57005E30FB /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B966962B7D3C57005E30FB /* App.swift */; };
 		A6B9AFED2B7FEE6C0054C021 /* SavedPokemonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B9AFEC2B7FEE6C0054C021 /* SavedPokemonRow.swift */; };
 		A6B9AFEF2B7FFD3E0054C021 /* View+Pokedex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B9AFEE2B7FFD3E0054C021 /* View+Pokedex.swift */; };
+		A6B9AFF12B8012C70054C021 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B9AFF02B8012C70054C021 /* BackButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,7 @@
 		A6B966962B7D3C57005E30FB /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = App.swift; path = pokedex/Managers/App.swift; sourceTree = SOURCE_ROOT; };
 		A6B9AFEC2B7FEE6C0054C021 /* SavedPokemonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SavedPokemonRow.swift; path = pokedex/Components/SavedPokemonRow.swift; sourceTree = SOURCE_ROOT; };
 		A6B9AFEE2B7FFD3E0054C021 /* View+Pokedex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "View+Pokedex.swift"; path = "pokedex/Extensions/View+Pokedex.swift"; sourceTree = SOURCE_ROOT; };
+		A6B9AFF02B8012C70054C021 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackButton.swift; path = pokedex/Components/BackButton.swift; sourceTree = SOURCE_ROOT; };
 		A6DE48B12B7E858E00F26670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -276,6 +278,7 @@
 				A6B7783E2B7FB23400907E49 /* StatsViewGroup.swift */,
 				A6B778432B7FC1C400907E49 /* PokemonAdditionalInfoView.swift */,
 				A6B9AFEC2B7FEE6C0054C021 /* SavedPokemonRow.swift */,
+				A6B9AFF02B8012C70054C021 /* BackButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				A6B966792B7D08FB005E30FB /* Constants.swift in Sources */,
 				A6B9665D2B7D03B9005E30FB /* AbilityListItem.swift in Sources */,
 				A6B966602B7D03B9005E30FB /* PokemonListItem.swift in Sources */,
+				A6B9AFF12B8012C70054C021 /* BackButton.swift in Sources */,
 				A6B966702B7D059A005E30FB /* SavedPokemonsScreen.swift in Sources */,
 				A6B9AFEF2B7FFD3E0054C021 /* View+Pokedex.swift in Sources */,
 				A6B778442B7FC1C400907E49 /* PokemonAdditionalInfoView.swift in Sources */,

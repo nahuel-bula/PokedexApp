@@ -63,11 +63,15 @@ struct PokemonDetailScreen: View {
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 .background(backgroundColor)
             }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: BackButton(color: backgroundColor).frame(alignment: .leading))
         } else {
             ProgressView()
                 .onAppear {
                     viewModel.fetchPokemonDetail(name: pokemonName)
                 }
+                .navigationBarBackButtonHidden(true)
+                .navigationBarItems(leading: BackButton().frame(alignment: .leading))
         }
     }
 }
