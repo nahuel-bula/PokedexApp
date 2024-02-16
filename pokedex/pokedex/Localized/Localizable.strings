@@ -10,5 +10,13 @@
 "search_pokemons" = "Search pokemons";
 "saved_pokemons" = "Saved pokémons";
 
-// Mark: - Search pokemon screen
+// MARK: - Search pokemon screen
 "search_pokemons_title" = "Select a pokémon";
+
+//MARK: - Pokemon detail
+"tab_item_about" = "About";
+"tab_item_stats" = "Stats";
+"about_height" = "Height";
+"about_weight" = "Weight";
+"about_abilities" = "Abilities";
+"about_species" = "Species";

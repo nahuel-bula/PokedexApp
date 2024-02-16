@@ -11,52 +11,57 @@ import SwiftUI
 struct PokemonDetailScreen: View {
     @ObservedObject var viewModel = PokemonDetailViewModel()
     @State private var isFavorite: Bool = false
+    
     var pokemonName: String
     
     var body: some View {
         if let pokemonDetail = viewModel.pokemonDetail {
-            
-            VStack {
-                Button(action: {
-                    viewModel.updateFavorite()
-                    isFavorite.toggle()
-                }) {
-                    Text(isFavorite ? "Remove from Favorites" : "Add to Favorites")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(viewModel.isFavorite() ? Color.red : Color.blue)
-                        .cornerRadius(8)
+            let backgroundColor = PokemonTypes(rawValue: pokemonDetail.types.first?.type.name ?? "")?.backgroundColor ?? PokemonTypes.unknown.backgroundColor
+            let itemsColor: Color = backgroundColor.isDarkColor ? .white : .black
+            GeometryReader { geometry in
+                VStack {
+                    ZStack {
+                        Image(uiImage: UIImage(named: "pokeballBackground") ?? UIImage())
+                            .resizable()
+                            .frame(width: 600, height: 600, alignment: .bottomTrailing)
+                            .padding(.trailing, -200)
+                            .foregroundColor(.white.opacity(0.1))
+                        
+                        VStack {
+                            HStack{
+                                Text(pokemonDetail.name.capitalized)
+                                    .font(.custom("SwaggerBold", size: 46, relativeTo: .title))
+                                    .foregroundColor(itemsColor)
+                                    .lineLimit(1)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .padding(.horizontal, 24)
+                                
+                                Button(action: {
+                                    viewModel.updateFavorite()
+                                    isFavorite.toggle()
+                                }) {
+                                    Image(uiImage: UIImage(named: isFavorite ? "favoriteFilled" : "favoriteEmpty") ?? UIImage())
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 24, height: 24)
+                                        .foregroundColor(itemsColor)
+                                }
+                                .padding(.trailing, 24)
+                                .onAppear {
+                                    isFavorite = viewModel.isFavorite()
+                                }
+                            }
+                            
+                            PokemonTypesCollection(pokemonTypes: pokemonDetail.types, textColor: itemsColor).padding(.horizontal, 24)
+                            
+                            Carrousel(spriteUrls: pokemonDetail.sprites.allSprites())
+                        }
+                    }.frame(height: 280)
+                    
+                    PokemonAdditionalInfoView(pokemonDetail: pokemonDetail)
                 }
-                .onAppear {
-                    isFavorite = viewModel.isFavorite()
-                }
-                
-                //Text("Name: \(pokemonDetail.name)")
-                Text("Height: \(pokemonDetail.getHeightInCentimeters()) cm")
-                Text("Weight: \(pokemonDetail.getWeightInKilograms()) kg")
-                Text("Species: \(pokemonDetail.species.name)")
-                Text("Abilities:")
-                ForEach(pokemonDetail.abilities, id: \.ability.name) { ability in
-                    Text(ability.ability.name)
-                }
-                Text("Stats:")
-                ForEach(pokemonDetail.stats, id: \.stat.name) { stat in
-                    Text("\(stat.stat.name): \(stat.baseStat)")
-                }
-                Text("Types:")
-                ForEach(pokemonDetail.types, id: \.type.name) { type in
-                    Text(type.type.name)
-                }
-            }
-            .padding()
-            .navigationTitle("Pokemon Detail")
-            ScrollView(.horizontal) {
-                LazyHStack {
-                    ForEach(pokemonDetail.sprites.allSprites(), id: \.self) { spriteUrl in
-                        AsyncImageView(url: spriteUrl)
-                            .frame(width: 100, height: 100)
-                    }
-                }
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                .background(backgroundColor)
             }
         } else {
             ProgressView()
