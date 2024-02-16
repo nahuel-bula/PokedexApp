@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 struct SavedPokemonScreen: View {
-    @ObservedObject var viewModel = SearchPokemonViewModel()
     var body: some View {
         let savedPokemons = AppManager.shared.savedPokemons
         
@@ -29,6 +28,8 @@ struct SavedPokemonScreen: View {
             Spacer().frame(height: 48)
         }
         .navigationTitle(localized("saved_pokemons_title"))
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: BackButton().frame(alignment: .leading))
     }
 }
 

@@ -64,7 +64,6 @@ struct HomeScreen: View {
                     
                     Spacer().frame(height: 48)
                 }
-                
                 .padding(.horizontal, 24)
                 .navigationDestination(for: ScreenRouter.self) { route in
                     switch route {

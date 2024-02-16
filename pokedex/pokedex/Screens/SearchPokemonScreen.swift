@@ -10,6 +10,7 @@ import SwiftUI
 
 struct SearchPokemonScreen: View {
     @ObservedObject var viewModel = SearchPokemonViewModel()
+    
     var body: some View {
         List {
             ForEach(viewModel.pokemons) { pokemon in
@@ -30,6 +31,8 @@ struct SearchPokemonScreen: View {
             .background(Color.gray.opacity(0.1))
         }
         .navigationTitle(localized("search_pokemons_title"))
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: BackButton().frame(alignment: .leading))
     }
 }
 
