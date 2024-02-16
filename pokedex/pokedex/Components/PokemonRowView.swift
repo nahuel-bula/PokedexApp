@@ -10,6 +10,21 @@ import SwiftUI
 
 struct PokemonRowView: View {
     var pokemonName: String
+    @State private var isShaking = false
+    
+    
+    func randomShakesNumber() -> Int {
+        var randomNumber = Int.random(in: 3...15)
+        if randomNumber % 2 == 0 {
+            randomNumber += 1
+        }
+        return randomNumber
+    }
+    
+    let randomDelay = Double.random(in: 1...2)
+    let randomDuration = Double.random(in: 0.1...0.4)
+    
+    
     var body: some View {
         ZStack {
             Image(uiImage: UIImage(named: "pokeballBackground") ?? UIImage())
@@ -23,6 +38,15 @@ struct PokemonRowView: View {
                     .frame(alignment: .leading)
                     .frame(width: 100, height: 100)
                     .padding(.horizontal, 16)
+                    .rotationEffect(.degrees(isShaking ? 5 : 0))
+                    .onAppear {
+                        withAnimation(Animation.easeInOut(duration: randomDuration)
+                            .repeatCount(randomShakesNumber())
+                            .delay(randomDelay)
+                            .repeatForever(autoreverses: true)) {
+                                isShaking.toggle()
+                            }
+                    }
                 
                 Text(pokemonName)
                     .font(.custom("SwaggerBold", size: 38, relativeTo: .body))
@@ -35,7 +59,5 @@ struct PokemonRowView: View {
             .frame(height: 130)
             .clipped()
             .cornerRadius(10)
-        
-        
     }
 }
