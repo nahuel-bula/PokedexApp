@@ -20,3 +20,6 @@
 "about_weight" = "Weight";
 "about_abilities" = "Abilities";
 "about_species" = "Species";
+
+//MARK: - Saved pokemons screen
+"saved_pokemons_title" = "Saved pokemons";
