@@ -28,29 +28,12 @@ struct PokemonDetailScreen: View {
                             .foregroundColor(.white.opacity(0.1))
                         
                         VStack {
-                            HStack{
-                                Text(pokemonDetail.name.capitalized)
-                                    .font(.custom("SwaggerBold", size: 46, relativeTo: .title))
-                                    .foregroundColor(itemsColor)
-                                    .lineLimit(1)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.horizontal, 24)
-                                
-                                Button(action: {
-                                    viewModel.updateFavorite()
-                                    isFavorite.toggle()
-                                }) {
-                                    Image(uiImage: UIImage(named: isFavorite ? "favoriteFilled" : "favoriteEmpty") ?? UIImage())
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 24, height: 24)
-                                        .foregroundColor(itemsColor)
-                                }
-                                .padding(.trailing, 24)
-                                .onAppear {
-                                    isFavorite = viewModel.isFavorite()
-                                }
-                            }
+                            Text(pokemonDetail.name.capitalized)
+                                .font(.custom("SwaggerBold", size: 46, relativeTo: .title))
+                                .foregroundColor(itemsColor)
+                                .lineLimit(1)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.horizontal, 24)
                             
                             PokemonTypesCollection(pokemonTypes: pokemonDetail.types, textColor: itemsColor).padding(.horizontal, 24)
                             
@@ -64,7 +47,35 @@ struct PokemonDetailScreen: View {
                 .background(backgroundColor)
             }
             .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: BackButton(color: backgroundColor).frame(alignment: .leading))
+            .navigationBarItems(leading: BackButton(color: itemsColor).frame(alignment: .leading),
+                                trailing: HStack{
+                Button(action: {
+                    Utils.sharePokemon(name: pokemonDetail.name.capitalized, imageUrl: pokemonDetail.portraitPicture)
+                }) {
+                    Image(uiImage: UIImage(named: "share") ?? UIImage())
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(itemsColor)
+                }
+                .onAppear {
+                    isFavorite = viewModel.isFavorite()
+                }
+                
+                Button(action: {
+                    viewModel.updateFavorite()
+                    isFavorite.toggle()
+                }) {
+                    Image(uiImage: UIImage(named: isFavorite ? "favoriteFilled" : "favoriteEmpty") ?? UIImage())
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(itemsColor)
+                }
+                .onAppear {
+                    isFavorite = viewModel.isFavorite()
+                }
+            })
         } else {
             ProgressView()
                 .onAppear {
@@ -75,6 +86,7 @@ struct PokemonDetailScreen: View {
         }
     }
 }
+
 
 struct PokemonDetailScreen_Previews: PreviewProvider {
     static var previews: some View {
