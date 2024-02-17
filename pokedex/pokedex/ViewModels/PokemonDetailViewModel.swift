@@ -10,6 +10,7 @@ import Combine
 
 class PokemonDetailViewModel: ObservableObject {
     @Published var pokemonDetail: PokemonDetail?
+    var loading: Bool = false 
     private var cancellables: Set<AnyCancellable> = []
     
     func fetchPokemonDetail(name: String) {
@@ -17,13 +18,23 @@ class PokemonDetailViewModel: ObservableObject {
             return
         }
         
+        loading = true
+        
+        // Create a data task publisher for the URL
         URLSession.shared.dataTaskPublisher(for: url)
-            .map { $0.data }
+            .tryMap { data, response -> Data in
+                guard let httpResponse = response as? HTTPURLResponse,
+                      (200...299).contains(httpResponse.statusCode) else {
+                    throw URLError(.badServerResponse)
+                }
+                return data
+            }
             .decode(type: PokemonDetail.self, decoder: ApiDecoder())
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
+                self.loading = false
                 if case .failure(let error) = completion {
-                    print("Error: \(error)")
+                    ErrorHandler.handle(error)
                 }
             }, receiveValue: { [weak self] response in
                 self?.pokemonDetail = response
