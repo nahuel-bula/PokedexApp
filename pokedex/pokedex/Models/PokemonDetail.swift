@@ -16,6 +16,9 @@ struct PokemonDetail: Codable {
     var stats: [Stat]
     var types: [PokemonTypeListItem]
     var weight: Double
+    var portraitPicture: String {
+        return sprites.other.officialArtwork.frontDefault ?? ""
+    }
     
     func getHeightInCentimeters() -> Double {
         return height * 10

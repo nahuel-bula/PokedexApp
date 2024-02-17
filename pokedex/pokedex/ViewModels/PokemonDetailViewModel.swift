@@ -38,7 +38,7 @@ class PokemonDetailViewModel: ObservableObject {
         if isFavorite() {
             AppManager.shared.savedPokemons.removeAll(where: { $0.name == pokemonDetail.name })
         } else {
-            AppManager.shared.savedPokemons.append(SavedPokemon(name: pokemonDetail.name, types: pokemonDetail.types, imageUrl: pokemonDetail.sprites.other.officialArtwork.frontDefault))
+            AppManager.shared.savedPokemons.append(SavedPokemon(name: pokemonDetail.name, types: pokemonDetail.types, imageUrl: pokemonDetail.portraitPicture))
         }
     }
     

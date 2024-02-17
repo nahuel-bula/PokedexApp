@@ -20,6 +20,8 @@
 "about_weight" = "Weight";
 "about_abilities" = "Abilities";
 "about_species" = "Species";
+"share_pokemon_message_1" = "Check out this ";
+"share_pokemon_message_2" = "that I found in my Pokédex app!";
 
 //MARK: - Saved pokemons screen
 "saved_pokemons_title" = "Saved pokemons";

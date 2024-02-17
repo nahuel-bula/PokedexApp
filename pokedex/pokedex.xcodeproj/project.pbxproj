@@ -111,7 +111,7 @@
 		A6B9AFEC2B7FEE6C0054C021 /* SavedPokemonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SavedPokemonRow.swift; path = pokedex/Components/SavedPokemonRow.swift; sourceTree = SOURCE_ROOT; };
 		A6B9AFEE2B7FFD3E0054C021 /* View+Pokedex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "View+Pokedex.swift"; path = "pokedex/Extensions/View+Pokedex.swift"; sourceTree = SOURCE_ROOT; };
 		A6B9AFF02B8012C70054C021 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackButton.swift; path = pokedex/Components/BackButton.swift; sourceTree = SOURCE_ROOT; };
-		A6DE48B12B7E858E00F26670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A6DE48B12B7E858E00F26670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,9 +171,9 @@
 		A6B966212B7CFDE1005E30FB /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				A6DE48B12B7E858E00F26670 /* Info.plist */,
 				A6B778402B7FB6F500907E49 /* Utils */,
 				A6B768892B7E9D1600DA03C6 /* Localized */,
-				A6DE48B12B7E858E00F26670 /* Info.plist */,
 				A6DE48AD2B7E850700F26670 /* Resources */,
 				A65F19B02B7D4AA4007BBE8B /* Extensions */,
 				A6B966952B7D3C2C005E30FB /* Managers */,
