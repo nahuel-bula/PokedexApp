@@ -9,30 +9,62 @@ import Foundation
 import SwiftUI
 
 struct SearchPokemonScreen: View {
-    @ObservedObject var viewModel = SearchPokemonViewModel()
+    @StateObject var viewModel = SearchPokemonViewModel()
+    @State private var error: Error?
     
     var body: some View {
-        List {
-            ForEach(viewModel.pokemons) { pokemon in
-                VStack {
-                    NavigationLink(value: ScreenRouter.pokemonDetailScreen(pokemon.name)) {
-                        PokemonRowView(pokemonName: pokemon.name.capitalized)
-                            .onAppear {
-                                if self.viewModel.pokemons.last == pokemon {
-                                    self.viewModel.fetchPokemons()
+        ZStack {
+            if !viewModel.loading {
+                if !viewModel.pokemons.isEmpty {
+                    VStack {
+                        List {
+                            ForEach(viewModel.pokemons) { pokemon in
+                                VStack {
+                                    NavigationLink(value: ScreenRouter.pokemonDetailScreen(pokemon.name)) {
+                                        PokemonRowView(pokemonName: pokemon.name.capitalized)
+                                            .onAppear {
+                                                if self.viewModel.pokemons.last == pokemon {
+                                                    self.viewModel.fetchPokemons()
+                                                }
+                                            }
+                                    }
+                                    Spacer().frame(height: 30)
                                 }
+                                .listRowSeparator(.hidden)
+                                .listRowInsets(EdgeInsets())
                             }
+                            .background(Color.gray.opacity(0.1))
+                        }
+                        .navigationTitle(localized("search_pokemons_title"))
+                        .navigationBarBackButtonHidden(true)
+                        .navigationBarItems(leading: BackButton().frame(alignment: .leading))
+                        
                     }
-                    Spacer().frame(height: 30)
+                    .onReceive(NotificationCenter.default.publisher(for: .errorOccurred)) { notification in
+                        self.error = notification.object as? Error
+                    }
+                } else {
+                    EmptyState()
+                        .navigationTitle(localized("search_pokemons_title"))
+                        .navigationBarBackButtonHidden(true)
+                        .navigationBarItems(leading: BackButton().frame(alignment: .leading))
                 }
-                .listRowSeparator(.hidden)
-                .listRowInsets(EdgeInsets())
+            } else {
+                ProgressView()
+                    .navigationTitle(localized("search_pokemons_title"))
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarItems(leading: BackButton().frame(alignment: .leading))
+                    .onReceive(NotificationCenter.default.publisher(for: .errorOccurred)) { notification in
+                        self.error = notification.object as? Error
+                    }
             }
-            .background(Color.gray.opacity(0.1))
+            if let error = error {
+                ErrorAlert(message: error.localizedDescription) {
+                    self.error = nil
+                }
+                .transition(.slide)
+            }
         }
-        .navigationTitle(localized("search_pokemons_title"))
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: BackButton().frame(alignment: .leading))
     }
 }
 
