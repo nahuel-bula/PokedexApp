@@ -25,3 +25,6 @@
 
 //MARK: - Saved pokemons screen
 "saved_pokemons_title" = "Saved pokemons";
+
+//MARK: - Empty state
+"empty_state_message" = "There is nothing to show right now...";
