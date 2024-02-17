@@ -11,21 +11,24 @@ import SwiftUI
 struct SavedPokemonScreen: View {
     var body: some View {
         let savedPokemons = AppManager.shared.savedPokemons
-        
         ScrollView(showsIndicators: false) {
-            VStack {
-                ForEach(0...AppManager.shared.savedPokemons.count/2, id: \.self) { index in
-                    HStack {
-                        ForEach(savedPokemons[index*2..<min(index*2 + 2, savedPokemons.count)], id: \.name) { pokemon in
-                            SavedPokemonRow(pokemon: pokemon)
+            if !savedPokemons.isEmpty {
+                VStack {
+                    ForEach(0...AppManager.shared.savedPokemons.count/2, id: \.self) { index in
+                        HStack {
+                            ForEach(savedPokemons[index*2..<min(index*2 + 2, savedPokemons.count)], id: \.name) { pokemon in
+                                SavedPokemonRow(pokemon: pokemon)
+                            }
                         }
                     }
                 }
+                .listRowSeparator(.hidden)
+                .listRowInsets(EdgeInsets())
+                
+                Spacer().frame(height: 48)
+            } else {
+                EmptyState().padding(.top, 48)
             }
-            .listRowSeparator(.hidden)
-            .listRowInsets(EdgeInsets())
-            
-            Spacer().frame(height: 48)
         }
         .navigationTitle(localized("saved_pokemons_title"))
         .navigationBarBackButtonHidden(true)
