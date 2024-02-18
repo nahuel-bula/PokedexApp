@@ -39,3 +39,6 @@
 "not_found_error" = "Unprocessable entity. The server cannot process your request.";
 "internal_server_error" = "Internal server error. Please try again later.";
 "unknown_error" = "An unknown error occurred.";
+
+//MARK: - Carrousel detail view
+"tap_to_exit" = "Tap anywhere to exit";
