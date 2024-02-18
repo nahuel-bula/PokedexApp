@@ -10,27 +10,22 @@ import Combine
 
 class PokemonDetailViewModel: ObservableObject {
     @Published var pokemonDetail: PokemonDetail?
-    var loading: Bool = false 
+    var loading: Bool = false
     private var cancellables: Set<AnyCancellable> = []
+    var session: ApiClientProtocol
     
-    func fetchPokemonDetail(name: String) {
+    init(session: ApiClientProtocol = PokemonApiClient()) {
+        self.session = session
+    }
+    
+    func getPokemonDetail(name: String) {
         guard let url = URL(string: "\(Constants.API.host)/\(Constants.API.Keys.pokemon)/\(name)") else {
             return
         }
         
         loading = true
         
-        // Create a data task publisher for the URL
-        URLSession.shared.dataTaskPublisher(for: url)
-            .tryMap { data, response -> Data in
-                guard let httpResponse = response as? HTTPURLResponse,
-                      (200...299).contains(httpResponse.statusCode) else {
-                    throw URLError(.badServerResponse)
-                }
-                return data
-            }
-            .decode(type: PokemonDetail.self, decoder: ApiDecoder())
-            .receive(on: DispatchQueue.main)
+        session.getPokemonDetails(for: url)
             .sink(receiveCompletion: { completion in
                 self.loading = false
                 if case .failure(let error) = completion {

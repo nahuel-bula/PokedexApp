@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct PokemonDetail: Codable {
+struct PokemonDetail: Codable, Equatable {
+    static func == (lhs: PokemonDetail, rhs: PokemonDetail) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
     var abilities: [AbilityListItem]
     var height: Double
     var name: String
@@ -27,5 +31,5 @@ struct PokemonDetail: Codable {
     func getWeightInKilograms() -> Double {
         return weight / 10
     }
-
+    
 }

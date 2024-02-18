@@ -13,28 +13,21 @@ class SearchPokemonViewModel: ObservableObject {
     var loading: Bool = false
     private var cancellables: Set<AnyCancellable> = []
     private var currentPage = 0
+    var session: ApiClientProtocol
     
-    init() {
-        fetchPokemons()
+    init(session: ApiClientProtocol = PokemonApiClient()) {
+        self.session = session
+        getPokemons()
     }
     
-    func fetchPokemons() {
+    func getPokemons() {
         guard let url = URL(string: "\(Constants.API.host)/\(Constants.API.Keys.pokemon)?\(Constants.API.Queries.limit)=\(Constants.pageSize)&\(Constants.API.Queries.offset)=\(currentPage*Constants.pageSize)") else {
             return
         }
         
         loading = true
         
-        URLSession.shared.dataTaskPublisher(for: url)
-            .tryMap { data, response -> Data in
-                guard let httpResponse = response as? HTTPURLResponse,
-                      (200...299).contains(httpResponse.statusCode) else {
-                    throw URLError(.badServerResponse)
-                }
-                return data
-            }
-            .decode(type: PokemonListResponse.self, decoder: ApiDecoder())
-            .receive(on: DispatchQueue.main)
+        session.getPokemons(for: url)
             .sink(receiveCompletion: { completion in
                 self.loading = false
                 if case .failure(let error) = completion {

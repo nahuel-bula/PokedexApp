@@ -24,7 +24,7 @@ struct SearchPokemonScreen: View {
                                         PokemonRowView(pokemonName: pokemon.name.capitalized)
                                             .onAppear {
                                                 if self.viewModel.pokemons.last == pokemon {
-                                                    self.viewModel.fetchPokemons()
+                                                    self.viewModel.getPokemons()
                                                 }
                                             }
                                     }

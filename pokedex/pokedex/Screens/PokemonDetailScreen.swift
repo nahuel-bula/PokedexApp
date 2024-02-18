@@ -84,7 +84,7 @@ struct PokemonDetailScreen: View {
             } else {
                 ProgressView()
                     .onAppear {
-                        viewModel.fetchPokemonDetail(name: pokemonName)
+                        viewModel.getPokemonDetail(name: pokemonName)
                     }
                     .navigationBarBackButtonHidden(true)
                     .navigationBarItems(leading: BackButton().frame(alignment: .leading))
