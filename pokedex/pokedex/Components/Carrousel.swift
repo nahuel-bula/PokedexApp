@@ -10,15 +10,28 @@ import SwiftUI
 
 struct Carrousel: View {
     var spriteUrls: [String]
+    @State private var selectedImage: IdentifiableString?
+    
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false  ) {
-            LazyHStack {
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHStack(spacing: 40) {
                 ForEach(spriteUrls, id: \.self) { spriteUrl in
-                    AsyncImageView(url: spriteUrl)
-                        .frame(width: 150, height: 150)
-                    Spacer().frame(width: 40)
+                    Button(action: {
+                        selectedImage = IdentifiableString(value: spriteUrl)
+                    }) {
+                        AsyncImageView(url: spriteUrl)
+                            .frame(width: 150, height: 150)
+                    }
                 }
-            }.frame(height: 150)
+            }
+            .frame(height: 150)
+        }
+        .fullScreenCover(item: $selectedImage) { imageUrl in
+            if let index = spriteUrls.firstIndex(of: imageUrl.value) {
+                CarrouselDetailView(imageUrl: imageUrl.value, onClose: {
+                    selectedImage = nil
+                })
+            }
         }
     }
 }

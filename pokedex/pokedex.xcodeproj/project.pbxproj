@@ -17,6 +17,8 @@
 		A65F19B62B7D4B75007BBE8B /* CustomCodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65F19B52B7D4B75007BBE8B /* CustomCodingKeys.swift */; };
 		A66AB7302B8267C80091BAAC /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66AB72F2B8267C80091BAAC /* SplashScreen.swift */; };
 		A66AB7322B8275080091BAAC /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66AB7312B8275080091BAAC /* ApiError.swift */; };
+		A66AB7342B8295B20091BAAC /* IdentifiableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66AB7332B8295B20091BAAC /* IdentifiableString.swift */; };
+		A66AB7362B82977E0091BAAC /* CarrouselDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66AB7352B82977E0091BAAC /* CarrouselDetailView.swift */; };
 		A6B768842B7E916200DA03C6 /* Swagger.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6B768832B7E910200DA03C6 /* Swagger.ttf */; };
 		A6B768852B7E916900DA03C6 /* SwaggerBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6B768822B7E910100DA03C6 /* SwaggerBold.ttf */; };
 		A6B768862B7E916B00DA03C6 /* SwaggerLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A6B768812B7E90FF00DA03C6 /* SwaggerLight.ttf */; };
@@ -89,6 +91,8 @@
 		A65F19B52B7D4B75007BBE8B /* CustomCodingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomCodingKeys.swift; path = pokedex/Coding/CustomCodingKeys.swift; sourceTree = SOURCE_ROOT; };
 		A66AB72F2B8267C80091BAAC /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashScreen.swift; path = pokedex/Screens/SplashScreen.swift; sourceTree = SOURCE_ROOT; };
 		A66AB7312B8275080091BAAC /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiError.swift; path = pokedex/Models/ApiError.swift; sourceTree = SOURCE_ROOT; };
+		A66AB7332B8295B20091BAAC /* IdentifiableString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IdentifiableString.swift; path = "pokedex/Data models/IdentifiableString.swift"; sourceTree = SOURCE_ROOT; };
+		A66AB7352B82977E0091BAAC /* CarrouselDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CarrouselDetailView.swift; path = pokedex/Components/CarrouselDetailView.swift; sourceTree = SOURCE_ROOT; };
 		A6B768812B7E90FF00DA03C6 /* SwaggerLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SwaggerLight.ttf; sourceTree = "<group>"; };
 		A6B768822B7E910100DA03C6 /* SwaggerBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SwaggerBold.ttf; sourceTree = "<group>"; };
 		A6B768832B7E910200DA03C6 /* Swagger.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Swagger.ttf; sourceTree = "<group>"; };
@@ -330,6 +334,7 @@
 				A6B9AFF02B8012C70054C021 /* BackButton.swift */,
 				A6D5B3F62B80351400FB41EF /* EmptyState.swift */,
 				A6D5B3F82B8055B100FB41EF /* ErrorAlert.swift */,
+				A66AB7352B82977E0091BAAC /* CarrouselDetailView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 			children = (
 				A6B966932B7D3AA9005E30FB /* SavedPokemon.swift */,
 				A62475B22B7EECC6002731F4 /* PokemonTypes.swift */,
+				A66AB7332B8295B20091BAAC /* IdentifiableString.swift */,
 			);
 			path = "Data models";
 			sourceTree = "<group>";
@@ -527,11 +533,13 @@
 				A65F19B42B7D4B1C007BBE8B /* ApiEncoder.swift in Sources */,
 				A65F19B22B7D4AC0007BBE8B /* UserDefaults+Pokedex.swift in Sources */,
 				A62475BB2B7F061A002731F4 /* Color+Pokedex.swift in Sources */,
+				A66AB7342B8295B20091BAAC /* IdentifiableString.swift in Sources */,
 				A6B966842B7D0D76005E30FB /* ImageLoader.swift in Sources */,
 				A66AB7322B8275080091BAAC /* ApiError.swift in Sources */,
 				A6B966232B7CFDE1005E30FB /* PokedexApp.swift in Sources */,
 				A62475B72B7EFF9F002731F4 /* PokemonTypesCollection.swift in Sources */,
 				A6B9AFED2B7FEE6C0054C021 /* SavedPokemonRow.swift in Sources */,
+				A66AB7362B82977E0091BAAC /* CarrouselDetailView.swift in Sources */,
 				A6B966662B7D03B9005E30FB /* Stat.swift in Sources */,
 				A6D5B3FB2B8058EB00FB41EF /* ErrorHandler.swift in Sources */,
 				A6B966672B7D03B9005E30FB /* PokemonListResponse.swift in Sources */,
