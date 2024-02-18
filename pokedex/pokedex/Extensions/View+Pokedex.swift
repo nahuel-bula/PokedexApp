@@ -19,6 +19,7 @@ struct RoundedCorner: Shape {
 }
 
 extension View {
+    //This allows to apply the corner radius to only the selected corners
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape( RoundedCorner(radius: radius, corners: corners) )
     }

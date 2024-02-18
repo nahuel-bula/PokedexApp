@@ -18,7 +18,7 @@ struct PokemonDetailScreen: View {
     var body: some View {
         ZStack {
             if let pokemonDetail = viewModel.pokemonDetail {
-                let backgroundColor = PokemonTypes(rawValue: pokemonDetail.types.first?.type.name ?? "")?.backgroundColor ?? PokemonTypes.unknown.backgroundColor
+                let backgroundColor = PokemonTypes(rawValue: pokemonDetail.types.first?.type.name ?? "")?.typeColor ?? PokemonTypes.unknown.typeColor
                 let itemsColor: Color = backgroundColor.isDarkColor ? .white : .black
                 GeometryReader { geometry in
                     VStack {
@@ -92,8 +92,8 @@ struct PokemonDetailScreen: View {
                         self.error = notification.object as? Error
                     }
             }
-            if let error = error {
-                ErrorAlert(message: error.localizedDescription) {
+            if let error = error as? ApiError{
+                ErrorAlert(message: error.defaultMessage) {
                     self.error = nil
                 }
                 .transition(.slide)

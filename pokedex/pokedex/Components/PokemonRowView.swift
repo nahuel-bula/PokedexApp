@@ -12,6 +12,8 @@ struct PokemonRowView: View {
     var pokemonName: String
     @State private var isShaking = false
     
+    let randomDelay = Double.random(in: 1...2)
+    let randomDuration = Double.random(in: 0.1...0.4)
     
     func randomShakesNumber() -> Int {
         var randomNumber = Int.random(in: 3...15)
@@ -20,10 +22,6 @@ struct PokemonRowView: View {
         }
         return randomNumber
     }
-    
-    let randomDelay = Double.random(in: 1...2)
-    let randomDuration = Double.random(in: 0.1...0.4)
-    
     
     var body: some View {
         ZStack {

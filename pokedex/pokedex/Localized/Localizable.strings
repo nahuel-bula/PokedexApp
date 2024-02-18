@@ -28,3 +28,14 @@
 
 //MARK: - Empty state
 "empty_state_message" = "There is nothing to show right now...";
+
+//MARK: - Error messages
+
+"not_found_error" = "Resource not found.";
+"bar_request_error" = "Bad request. Please check your request parameters.";
+"unauthorized_error" = "Unauthorized. Please log in or provide valid credentials.";
+"forbidden_error" = "Forbidden. You don't have permission to access this resource.";
+"parsing_error" = "Error parsing the response data.";
+"not_found_error" = "Unprocessable entity. The server cannot process your request.";
+"internal_server_error" = "Internal server error. Please try again later.";
+"unknown_error" = "An unknown error occurred.";
