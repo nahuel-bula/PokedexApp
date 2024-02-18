@@ -31,5 +31,4 @@ struct PokemonDetail: Codable, Equatable {
     func getWeightInKilograms() -> Double {
         return weight / 10
     }
-    
 }
