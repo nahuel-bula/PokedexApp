@@ -13,7 +13,8 @@ struct StatsViewGroup: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 4)  {
             ForEach(stats, id: \.stat.name) { stat in
-                StatView(statValue: CGFloat(stat.baseStat), statName: stat.stat.name, statColor: stat.baseStat < 60 ? .green : stat.baseStat < 75 ? .yellow : .red )
+                let statColor: Color = stat.baseStat < 60 ? .green : stat.baseStat < 75 ? .yellow : .red
+                StatView(statValue: CGFloat(stat.baseStat), statName: stat.stat.name, statColor: statColor )
             }
         }
     }

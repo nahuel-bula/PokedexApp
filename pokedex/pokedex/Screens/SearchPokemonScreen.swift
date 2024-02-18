@@ -58,8 +58,8 @@ struct SearchPokemonScreen: View {
                         self.error = notification.object as? Error
                     }
             }
-            if let error = error {
-                ErrorAlert(message: error.localizedDescription) {
+            if let error = error as? ApiError{
+                ErrorAlert(message: error.defaultMessage) {
                     self.error = nil
                 }
                 .transition(.slide)

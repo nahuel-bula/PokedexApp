@@ -11,20 +11,17 @@ import SwiftUI
 enum PokemonTypes: String, CaseIterable {
     case normal, fighting, flying, poison, ground, rock, bug, ghost, steel, fire, water, grass, electric, psychic, ice, dragon, dark, fairy, unknown, shadow
     
-    var backgroundColor: Color {
+    var typeColor: Color {
         switch self {
         case .normal: return Color.gray
         case .fighting: return Color.red
-        case .flying: return Color.blue
+        case .flying, .water: return Color.blue
         case .poison: return Color.purple
-        case .ground: return Color.orange
+        case .ground, .fire: return Color.orange
         case .rock: return Color(UIColor(red: 0.6, green: 0.4, blue: 0.2, alpha: 1.0))
-        case .bug: return Color.green
+        case .bug, .grass: return Color.green
         case .ghost: return Color.black
         case .steel: return Color(UIColor(red: 0.7, green: 0.7, blue: 0.8, alpha: 1.0))
-        case .fire: return Color.orange
-        case .water: return Color.blue
-        case .grass: return Color.green
         case .electric: return Color.yellow
         case .psychic:  return Color(UIColor(red: 0.8, green: 0.4, blue: 0.8, alpha: 1.0))
         case .ice: return Color.mint

@@ -11,7 +11,7 @@ import SwiftUI
 struct SavedPokemonRow: View {
     var pokemon: SavedPokemon
     var body: some View {
-        let backgroundColor = PokemonTypes(rawValue: pokemon.types.first?.type.name ?? "")?.backgroundColor
+        let backgroundColor = PokemonTypes(rawValue: pokemon.types.first?.type.name ?? "")?.typeColor
         NavigationLink(value: ScreenRouter.pokemonDetailScreen(pokemon.name)) {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
